@@ -1,0 +1,1 @@
+[('Extra Trees Regressor', ExtraTreesRegressor(n_jobs=-1, random_state=4015)), ('Light Gradient Boosting Machine', LGBMRegressor(random_state=4015)), ('CatBoost Regressor', <catboost.core.CatBoostRegressor object at 0x2a9ec2ca0>)]

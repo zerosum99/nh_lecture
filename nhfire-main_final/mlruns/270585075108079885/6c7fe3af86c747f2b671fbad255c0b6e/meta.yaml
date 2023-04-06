@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/a06411/Documents/GitHub/nh_lecture/nhfire-main_final/mlruns/270585075108079885/6c7fe3af86c747f2b671fbad255c0b6e/artifacts
+end_time: 1680743488635
+experiment_id: '270585075108079885'
+lifecycle_stage: active
+run_id: 6c7fe3af86c747f2b671fbad255c0b6e
+run_name: Bayesian Ridge
+run_uuid: 6c7fe3af86c747f2b671fbad255c0b6e
+start_time: 1680743488365
+status: 3
+user_id: a06411
+tags: []
+source_type: 4
+source_name: ''
+entry_point_name: ''
+source_version: ''

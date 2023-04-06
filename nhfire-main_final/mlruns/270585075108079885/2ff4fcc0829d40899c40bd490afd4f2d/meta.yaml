@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/a06411/Documents/GitHub/nh_lecture/nhfire-main_final/mlruns/270585075108079885/2ff4fcc0829d40899c40bd490afd4f2d/artifacts
+end_time: 1680743335708
+experiment_id: '270585075108079885'
+lifecycle_stage: active
+run_id: 2ff4fcc0829d40899c40bd490afd4f2d
+run_name: Linear Regression
+run_uuid: 2ff4fcc0829d40899c40bd490afd4f2d
+start_time: 1680743335426
+status: 3
+user_id: a06411
+tags: []
+source_type: 4
+source_name: ''
+entry_point_name: ''
+source_version: ''

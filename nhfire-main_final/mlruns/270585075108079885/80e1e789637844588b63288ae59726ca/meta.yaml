@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/a06411/Documents/GitHub/nh_lecture/nhfire-main_final/mlruns/270585075108079885/80e1e789637844588b63288ae59726ca/artifacts
+end_time: 1680743336094
+experiment_id: '270585075108079885'
+lifecycle_stage: active
+run_id: 80e1e789637844588b63288ae59726ca
+run_name: Ridge Regression
+run_uuid: 80e1e789637844588b63288ae59726ca
+start_time: 1680743335796
+status: 3
+user_id: a06411
+tags: []
+source_type: 4
+source_name: ''
+entry_point_name: ''
+source_version: ''

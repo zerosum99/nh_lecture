@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/a06411/Documents/GitHub/nh_lecture/nhfire-main_final/mlruns/270585075108079885/40fa282fa2b044ffa4591679629d2176/artifacts
+end_time: 1680742494616
+entry_point_name: ''
+experiment_id: '270585075108079885'
+lifecycle_stage: active
+run_id: 40fa282fa2b044ffa4591679629d2176
+run_name: Dummy Regressor
+run_uuid: 40fa282fa2b044ffa4591679629d2176
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1680742494381
+status: 3
+tags: []
+user_id: a06411

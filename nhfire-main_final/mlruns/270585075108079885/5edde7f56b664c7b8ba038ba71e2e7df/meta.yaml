@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/a06411/Documents/GitHub/nh_lecture/nhfire-main_final/mlruns/270585075108079885/5edde7f56b664c7b8ba038ba71e2e7df/artifacts
+end_time: 1680742427645
+entry_point_name: ''
+experiment_id: '270585075108079885'
+lifecycle_stage: active
+run_id: 5edde7f56b664c7b8ba038ba71e2e7df
+run_name: Orthogonal Matching Pursuit
+run_uuid: 5edde7f56b664c7b8ba038ba71e2e7df
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1680742427398
+status: 3
+tags: []
+user_id: a06411

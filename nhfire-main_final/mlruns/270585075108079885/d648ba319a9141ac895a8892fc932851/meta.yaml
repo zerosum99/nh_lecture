@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/a06411/Documents/GitHub/nh_lecture/nhfire-main_final/mlruns/270585075108079885/d648ba319a9141ac895a8892fc932851/artifacts
+end_time: 1680743695592
+experiment_id: '270585075108079885'
+lifecycle_stage: active
+run_id: d648ba319a9141ac895a8892fc932851
+run_name: CatBoost Regressor
+run_uuid: d648ba319a9141ac895a8892fc932851
+start_time: 1680743695134
+status: 3
+user_id: a06411
+tags: []
+source_type: 4
+source_name: ''
+entry_point_name: ''
+source_version: ''

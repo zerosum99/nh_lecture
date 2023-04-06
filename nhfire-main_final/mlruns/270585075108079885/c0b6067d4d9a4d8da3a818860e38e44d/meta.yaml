@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/a06411/Documents/GitHub/nh_lecture/nhfire-main_final/mlruns/270585075108079885/c0b6067d4d9a4d8da3a818860e38e44d/artifacts
+end_time: 1680742428916
+entry_point_name: ''
+experiment_id: '270585075108079885'
+lifecycle_stage: active
+run_id: c0b6067d4d9a4d8da3a818860e38e44d
+run_name: Passive Aggressive Regressor
+run_uuid: c0b6067d4d9a4d8da3a818860e38e44d
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1680742428672
+status: 3
+tags: []
+user_id: a06411

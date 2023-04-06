@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/a06411/Documents/GitHub/nh_lecture/nhfire-main_final/mlruns/270585075108079885/b77a5daf807f4ddf89424f45471dfceb/artifacts
+end_time: 1680743487481
+experiment_id: '270585075108079885'
+lifecycle_stage: active
+run_id: b77a5daf807f4ddf89424f45471dfceb
+run_name: AdaBoost Regressor
+run_uuid: b77a5daf807f4ddf89424f45471dfceb
+start_time: 1680743487211
+status: 3
+user_id: a06411
+tags: []
+source_type: 4
+source_name: ''
+entry_point_name: ''
+source_version: ''

@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/a06411/Documents/GitHub/nh_lecture/nhfire-main_final/mlruns/270585075108079885/0219a66133044299bf5c6ae5696464e7/artifacts
+end_time: 1680743337881
+experiment_id: '270585075108079885'
+lifecycle_stage: active
+run_id: 0219a66133044299bf5c6ae5696464e7
+run_name: Elastic Net
+run_uuid: 0219a66133044299bf5c6ae5696464e7
+start_time: 1680743337603
+status: 3
+user_id: a06411
+tags: []
+source_type: 4
+source_name: ''
+entry_point_name: ''
+source_version: ''

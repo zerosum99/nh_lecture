@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/a06411/Documents/GitHub/nh_lecture/nhfire-main_final/mlruns/270585075108079885/266fa36caf094caca0cbc9dd4a633680/artifacts
+end_time: 1680743486233
+experiment_id: '270585075108079885'
+lifecycle_stage: active
+run_id: 266fa36caf094caca0cbc9dd4a633680
+run_name: Gradient Boosting Regressor
+run_uuid: 266fa36caf094caca0cbc9dd4a633680
+start_time: 1680743485926
+status: 3
+user_id: a06411
+tags: []
+source_type: 4
+source_name: ''
+entry_point_name: ''
+source_version: ''
