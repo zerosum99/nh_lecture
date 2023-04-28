@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/a06411/Documents/GitHub/nh_lecture/nhfire-main_final/mlruns/270585075108079885/b8045c332d9748f09b6cb4971fb1c27c/artifacts
+end_time: 1680742427965
+entry_point_name: ''
+experiment_id: '270585075108079885'
+lifecycle_stage: active
+run_id: b8045c332d9748f09b6cb4971fb1c27c
+run_name: K Neighbors Regressor
+run_uuid: b8045c332d9748f09b6cb4971fb1c27c
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1680742427721
+status: 3
+tags: []
+user_id: a06411

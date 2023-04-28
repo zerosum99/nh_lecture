@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/a06411/Documents/GitHub/nh_lecture/nhfire-main_final/mlruns/270585075108079885/5ada48a5bc2741fe8a324d1b25bc91a3/artifacts
+end_time: 1680743489407
+experiment_id: '270585075108079885'
+lifecycle_stage: active
+run_id: 5ada48a5bc2741fe8a324d1b25bc91a3
+run_name: Lasso Regression
+run_uuid: 5ada48a5bc2741fe8a324d1b25bc91a3
+start_time: 1680743489133
+status: 3
+user_id: a06411
+tags: []
+source_type: 4
+source_name: ''
+entry_point_name: ''
+source_version: ''

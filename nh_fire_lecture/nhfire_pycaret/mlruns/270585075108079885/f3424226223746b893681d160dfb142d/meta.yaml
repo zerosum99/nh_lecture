@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/a06411/Documents/GitHub/nh_lecture/nhfire-main_final/mlruns/270585075108079885/f3424226223746b893681d160dfb142d/artifacts
+end_time: 1680743334600
+experiment_id: '270585075108079885'
+lifecycle_stage: active
+run_id: f3424226223746b893681d160dfb142d
+run_name: Random Forest Regressor
+run_uuid: f3424226223746b893681d160dfb142d
+start_time: 1680743334305
+status: 3
+user_id: a06411
+tags: []
+source_type: 4
+source_name: ''
+entry_point_name: ''
+source_version: ''

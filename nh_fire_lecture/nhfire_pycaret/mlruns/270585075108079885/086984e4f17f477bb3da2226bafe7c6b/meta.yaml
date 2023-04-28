@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/a06411/Documents/GitHub/nh_lecture/nhfire-main_final/mlruns/270585075108079885/086984e4f17f477bb3da2226bafe7c6b/artifacts
+end_time: null
+experiment_id: '270585075108079885'
+lifecycle_stage: active
+run_id: 086984e4f17f477bb3da2226bafe7c6b
+run_name: Session Initialized 94bb
+run_uuid: 086984e4f17f477bb3da2226bafe7c6b
+start_time: 1680743267210
+status: 1
+user_id: a06411
+tags: []
+source_type: 4
+source_name: ''
+entry_point_name: ''
+source_version: ''

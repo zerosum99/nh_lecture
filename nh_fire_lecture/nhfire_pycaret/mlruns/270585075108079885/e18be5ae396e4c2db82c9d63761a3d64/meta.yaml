@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/a06411/Documents/GitHub/nh_lecture/nhfire-main_final/mlruns/270585075108079885/e18be5ae396e4c2db82c9d63761a3d64/artifacts
+end_time: 1680743732503
+experiment_id: '270585075108079885'
+lifecycle_stage: active
+run_id: e18be5ae396e4c2db82c9d63761a3d64
+run_name: Stacking Regressor
+run_uuid: e18be5ae396e4c2db82c9d63761a3d64
+start_time: 1680743732037
+status: 3
+user_id: a06411
+tags: []
+source_type: 4
+source_name: ''
+entry_point_name: ''
+source_version: ''

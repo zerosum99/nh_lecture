@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/a06411/Documents/GitHub/nh_lecture/nhfire-main_final/mlruns/270585075108079885/67b85c3c1efa42e2a6504a7ad9589dde/artifacts
+end_time: 1680743487064
+experiment_id: '270585075108079885'
+lifecycle_stage: active
+run_id: 67b85c3c1efa42e2a6504a7ad9589dde
+run_name: Extreme Gradient Boosting
+run_uuid: 67b85c3c1efa42e2a6504a7ad9589dde
+start_time: 1680743486774
+status: 3
+user_id: a06411
+tags: []
+source_type: 4
+source_name: ''
+entry_point_name: ''
+source_version: ''

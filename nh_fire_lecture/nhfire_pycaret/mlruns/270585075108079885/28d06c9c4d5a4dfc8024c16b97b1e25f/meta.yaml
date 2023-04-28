@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/a06411/Documents/GitHub/nh_lecture/nhfire-main_final/mlruns/270585075108079885/28d06c9c4d5a4dfc8024c16b97b1e25f/artifacts
+end_time: 1680742491167
+entry_point_name: ''
+experiment_id: '270585075108079885'
+lifecycle_stage: active
+run_id: 28d06c9c4d5a4dfc8024c16b97b1e25f
+run_name: Least Angle Regression
+run_uuid: 28d06c9c4d5a4dfc8024c16b97b1e25f
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1680742490932
+status: 3
+tags: []
+user_id: a06411

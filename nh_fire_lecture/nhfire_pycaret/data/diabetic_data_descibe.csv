@@ -1,0 +1,51 @@
+칼럼명,한글명, 설명
+encounter_id,고유식별자,고객구분하는 번호 
+patient_nbr,환자식별번호,환자의 고유 식별 번호
+race,인종, 백인 흑인 등 구분 
+gender, 성별, 남성 여성 및 알수없음무효
+age, 나이,10 년 간격으로 그룹화 된 연령 0 10) 10 20) 90 100)
+weight, 몸무게,무게 (파운드)
+admission_type_id, 허용타입,  9 개의 고유 값에 해당하는 정수 식별자 (예  긴급 긴급 선택 신생아 및 사용할 수 없음)
+discharge_disposition_id, 퇴원처리코드,퇴원 처리 29 개의 고유 값에 해당하는 정수 식별자 (예 : 집으로 퇴원 만료 및 사용할 수 없음)
+admission_source_id, 허용소스,21 개의 고유 한 값에 해당하는 정수 식별자 (예 : 의사 소개 응급실 및 병원에서 전송)
+time_in_hospital, 입원일수, 입원과 퇴원 사이의 정수 일수
+payer_code, 지불코드, 23 개의 고유 값에 해당하는 정수 식별자 (예 : Blue Cross / Blue Shield Medicare 및 자기 부담 의료)
+medical_specialty,전문분야코드, 입원 의사의 전문 분야에 대한 정수 식별자 (예 : 심장학 내과 가족 / 일반 진료 외과의)
+num_lab_procedures,실험테스트수,실험실 절차 수 만남 중 수행 된 실험실 테스트 수
+num_procedures,절차수,절차 수 숫자 만남 중 수행 된 절차 (실험실 테스트 제외)의 수
+num_medications, 투약횟수, 투약 횟수 만남 중 투여 된 고유 한 일반 이름의 수
+number_outpatient,오래방문횟수, 외래 방문 횟수 만남 전 해에 환자의 외래 방문 횟수
+number_emergency,응급방문횟수,응급 방문 횟수 만남 전 1 년 동안 환자의 응급 방문 횟수
+number_inpatient,방문회수,입원 환자 방문수 만남 전년도에 환자의 입원 환자 방문수
+diag_1,일차진단,  (ICD9의 처음 세 자리로 코딩 됨) 848 개의 고유 값
+diag_2,이차진단,  (ICD9의 처음 세 자리로 코딩 됨) 923 개의 고유 값
+diag_3,삼차진단,추가 이차 진단 (ICD9의 처음 세 자리로 코딩 됨) 954 개의 고유 값
+number_diagnoses,진단 수, 시스템에 입력 된 진단 수 0 %
+max_glu_serum,포도당혈청검사결과, 결과의 범위 또는 검사를받지 않았는지 여부를 나타냅니다.값 "> 200"  "> 300"  "normal"및 측정되지 않은 경우 "none"
+A1Cresult,A1C검사,  A1c 테스트 결과 결과의 범위 또는 테스트가 수행되지 않았는지 여부        
+metformin,메트포르민 ,   약물에 대한 24 가지 기능 일반 이름               
+repaglinide ,레파글리니드 ,  약물에 대한 24 가지 기능 일반 이름
+nateglinide,나테글리니드 ,  약물에 대한 24 가지 기능 일반 이름
+chlorpropamide ,클로르프로파미드 ,  약물에 대한 24 가지 기능 일반 이름
+glimepiride  ,글리메피리드,  약물에 대한 24 가지 기능 일반 이름
+acetohexamide ,아세토헥사미드 ,  약물에 대한 24 가지 기능 일반 이름
+glipizide   ,글리피지드 ,  약물에 대한 24 가지 기능 일반 이름
+glyburide ,글리부리드 ,  약물에 대한 24 가지 기능 일반 이름
+tolbutamide  ,톨부타미드 ,  약물에 대한 24 가지 기능 일반 이름
+pioglitazone ,피오글리타존 ,  약물에 대한 24 가지 기능 일반 이름
+rosiglitazone ,로시글리타존 ,  약물에 대한 24 가지 기능 일반 이름
+acarbose     ,아카보스 ,  약물에 대한 24 가지 기능 일반 이름
+miglitol   ,미글리톨 ,  약물에 대한 24 가지 기능 일반 이름
+troglitazone ,트로글리타존 ,  약물에 대한 24 가지 기능 일반 이름
+tolazamide   ,톨라자미드 ,  약물에 대한 24 가지 기능 일반 이름
+examide       ,엑사마이드 ,  약물에 대한 24 가지 기능 일반 이름
+citoglipton  ,시토글립톤 ,  약물에 대한 24 가지 기능 일반 이름
+insulin   ,인슐린 ,  약물에 대한 24 가지 기능 일반 이름
+glyburide-metformin      ,글리부리드-메트포르민 ,  약물에 대한 24 가지 기능 일반 이름
+glipizide-metformin     ,글리피자이드-메트포르민 ,약물에 대한 24 가지 기능 일반 이름  
+glimepiride-pioglitazone  ,글리메피리드-피오글리타존 , 약물에 대한 24 가지 기능 일반 이름 
+metformin-rosiglitazone  ,메트포르민-로시글리타존 ,  약물에 대한 24 가지 기능 일반 이름
+metformin-pioglitazone   ,메트포르민-피오글리타존 ,  약물에 대한 24 가지 기능 일반 이름
+change                  ,변화도 ,  
+diabetesMed            ,처방여부 , 처방 된 당뇨병 약이 있는지 여부 
+readmitted              ,재발여부 ,재발 여부  

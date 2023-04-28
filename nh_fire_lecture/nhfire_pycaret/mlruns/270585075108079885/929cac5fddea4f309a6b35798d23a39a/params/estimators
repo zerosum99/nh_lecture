@@ -1,0 +1,1 @@
+[('CatBoost Regressor', <catboost.core.CatBoostRegressor object at 0x16a854550>), ('Gradient Boosting Regressor', GradientBoostingRegressor(random_state=2108)), ('Extra Trees Regressor', ExtraTreesRegressor(n_jobs=-1, random_state=2108))]

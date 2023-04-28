@@ -1,0 +1,8 @@
+name: reg-default-name-env
+channels:
+- conda-forge
+dependencies:
+- pip<=22.3.1
+- pip:
+  - mlflow<3,>=2.2
+  - pycaret==3.0.0

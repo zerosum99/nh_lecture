@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/a06411/Documents/GitHub/nh_lecture/nhfire-main_final/mlruns/270585075108079885/7258a9d2970f45b0bd71c7913b64a4b5/artifacts
+end_time: 1680742428284
+entry_point_name: ''
+experiment_id: '270585075108079885'
+lifecycle_stage: active
+run_id: 7258a9d2970f45b0bd71c7913b64a4b5
+run_name: Lasso Least Angle Regression
+run_uuid: 7258a9d2970f45b0bd71c7913b64a4b5
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1680742428040
+status: 3
+tags: []
+user_id: a06411

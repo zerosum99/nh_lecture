@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/a06411/Documents/GitHub/nh_lecture/nhfire-main_final/mlruns/270585075108079885/4bd46d5023914cd09e818198f356e1ca/artifacts
+end_time: 1680743333406
+experiment_id: '270585075108079885'
+lifecycle_stage: active
+run_id: 4bd46d5023914cd09e818198f356e1ca
+run_name: Light Gradient Boosting Machine
+run_uuid: 4bd46d5023914cd09e818198f356e1ca
+start_time: 1680743333109
+status: 3
+user_id: a06411
+tags: []
+source_type: 4
+source_name: ''
+entry_point_name: ''
+source_version: ''

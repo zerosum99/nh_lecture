@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/a06411/Documents/GitHub/nh_lecture/nhfire-main_final/mlruns/270585075108079885/4f3e4d6d432046c6a122870a52969a5c/artifacts
+end_time: 1680742493043
+entry_point_name: ''
+experiment_id: '270585075108079885'
+lifecycle_stage: active
+run_id: 4f3e4d6d432046c6a122870a52969a5c
+run_name: Huber Regressor
+run_uuid: 4f3e4d6d432046c6a122870a52969a5c
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1680742492806
+status: 3
+tags: []
+user_id: a06411
