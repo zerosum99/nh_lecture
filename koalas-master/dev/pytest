@@ -1,0 +1,56 @@
+#!/usr/bin/env bash
+
+#
+# Copyright (C) 2019 Databricks, Inc.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
+PYTHON_EXECUTABLE="${PYTHON_EXECUTABLE:-python}"
+
+set -o pipefail
+set -e
+
+if ! hash pytest 2> /dev/null; then
+    echo "The pytest command was not found. Please install 'pytest' Python package."
+    exit 1
+fi
+
+# The current directory of the script.
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+if [ -n "$SPARK_HOME" ]; then
+    source $DIR/env_setup.sh
+fi
+
+FWDIR="$( cd "$DIR"/.. && pwd )"
+cd "$FWDIR"
+
+if [ -n "$KOALAS_USAGE_LOGGER" ]; then
+    logopts=(-o log_cli=true -s)
+fi
+
+# Runs both doctests and unit tests by default, otherwise hands arguments over to pytest.
+if [ "$#" = 0 ]; then
+    if [[ "$SPARK_VERSION" == 2.3* ]] || [[ "$SPARK_VERSION" == 2.4.1* ]] || [[ "$SPARK_VERSION" == 2.4.2* ]] || [[ "$SPARK_VERSION" == 3.2.* ]]; then
+        # Delta requires Spark 2.4.2+, and doesn't support Spark 3.2+ yet. We skip the related doctests.
+        if [[ "$SPARK_VERSION" == 2.3* ]]; then
+            $PYTHON_EXECUTABLE -m pytest --cov=databricks --cov-report xml:"$FWDIR/coverage.xml" -k "not (melt or to_delta or read_delta or to_clipboard)" --verbose --showlocals --color=yes --doctest-modules databricks "${logopts[@]}"
+        else
+            $PYTHON_EXECUTABLE -m pytest --cov=databricks --cov-report xml:"$FWDIR/coverage.xml" -k "not (to_delta or read_delta or to_clipboard)" --verbose --showlocals --color=yes --doctest-modules databricks "${logopts[@]}"
+        fi
+    else
+        $PYTHON_EXECUTABLE -m pytest --cov=databricks --cov-report xml:"$FWDIR/coverage.xml" -k "not to_clipboard" --verbose --showlocals --color=yes --doctest-modules databricks "${logopts[@]}"
+    fi
+else
+    $PYTHON_EXECUTABLE -m pytest "$@"
+fi

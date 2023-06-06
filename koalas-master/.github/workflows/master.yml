@@ -1,0 +1,194 @@
+name: Build and test
+
+on:
+  push:
+    branches: 
+      - master
+  pull_request:
+    branches: 
+      - master
+
+jobs:
+  pip_build:
+    name: PIP (Python, Spark, pandas, PyArrow)
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - python-version: 3.5
+            spark-version: 2.3.4
+            pandas-version: 0.23.4
+            pyarrow-version: 0.16.0
+            numpy-version: 1.18.5
+          - python-version: 3.6
+            spark-version: 2.3.4
+            pandas-version: 0.24.2
+            pyarrow-version: 0.10.0
+            numpy-version: 1.19.5
+            default-index-type: 'distributed-sequence'
+          - python-version: 3.9
+            spark-version: 3.1.2
+            pandas-version: 1.2.5
+            pyarrow-version: 3.0.0
+            numpy-version: 1.20.3
+          - python-version: 3.9
+            spark-version: 3.2.0
+            pandas-version: 1.2.5
+            pyarrow-version: 4.0.1
+            numpy-version: 1.21.2
+            default-index-type: 'distributed-sequence'
+    env:
+      PYTHON_VERSION: ${{ matrix.python-version }}
+      SPARK_VERSION: ${{ matrix.spark-version }}
+      PANDAS_VERSION: ${{ matrix.pandas-version }}
+      PYARROW_VERSION: ${{ matrix.pyarrow-version }}
+      NUMPY_VERSION: ${{ matrix.numpy-version }}
+      DEFAULT_INDEX_TYPE: ${{ matrix.default-index-type }}
+      KOALAS_TESTING: 1
+      SPARK_LOCAL_IP: 127.0.0.1
+      # DISPLAY=0.0 does not work in Github Actions with Python 3.5. Here we work around with xvfb-run
+      PYTHON_EXECUTABLE: xvfb-run python
+      # Github token is required to auto-generate the release notes from Github release notes
+      GITHUB_OAUTH_KEY: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-java@v1
+      with:
+        java-version: 1.8
+    - uses: actions/cache@v1
+      with:
+        path: ~/.cache/pip
+        key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements-dev.txt') }}
+        restore-keys: |
+          ${{ runner.os }}-pip-
+    - uses: actions/setup-python@v2
+      with:
+        python-version: ${{ matrix.python-version }}
+    - name: Install dependencies
+      run: |
+        sudo apt-get install xclip
+        # It fails due to missing 'bdist_wheel' for some reasons. Explicitly installs it.
+        # See also https://github.com/palantir/python-language-server/issues/524#issuecomment-477068693.
+        pip install wheel setuptools
+        python setup.py bdist_wheel
+        # Currently PIP with Python 3.5 removes Black in the requirements-dev.txt file
+        # as Black only works with Python 3.6+. This is hacky but we will drop
+        # Python 3.5 soon so it's fine.
+        if [[ "$PYTHON_VERSION" < "3.6" ]]; then sed -i '/black/d' requirements-dev.txt; fi
+        # sphinx-plotly-directive supports Python 3.6+
+        if [[ "$PYTHON_VERSION" < "3.6" ]]; then sed -i '/sphinx-plotly-directive/d' requirements-dev.txt; fi
+        # Disable mypy check for PySpark 3.1
+        if [[ "$SPARK_VERSION" > "3.1" ]]; then sed -i '/mypy/d' requirements-dev.txt; fi
+        pip install -r requirements-dev.txt
+        pip install pandas==$PANDAS_VERSION pyarrow==$PYARROW_VERSION pyspark==$SPARK_VERSION numpy==$NUMPY_VERSION
+        # matplotlib dropped Python 3.5 support from 3.1.x; however, 3.0.3 only supports sphinx 2.x.
+        # It forces the sphinx version to 2.x.
+        if [[ "$PYTHON_VERSION" < "3.6" ]]; then pip install "sphinx<3.0.0"; fi
+        pip list
+    - name: Run tests
+      run: |
+        # lint-python uses python3 as default. Seems python3 could pick a different Python.
+        # Looks a side effect from manual Python 3.5 installation.
+        PYTHON_EXECUTABLE=python ./dev/lint-python
+        ./dev/pytest
+    - uses: codecov/codecov-action@v1
+
+  conda_build:
+    name: Conda (Python, Spark, pandas, PyArrow)
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - python-version: 3.6
+            spark-version: 2.4.7
+            pandas-version: 0.24.2
+            pyarrow-version: 0.14.1
+            numpy-version: 1.19.5
+            logger: databricks.koalas.usage_logging.usage_logger
+          - python-version: 3.7
+            spark-version: 2.4.7
+            pandas-version: 0.25.3
+            pyarrow-version: 0.15.1
+            numpy-version: 1.19.5
+            default-index-type: 'distributed-sequence'
+          - python-version: 3.7
+            spark-version: 3.0.2
+            pandas-version: 1.0.5
+            pyarrow-version: 1.0.1
+            numpy-version: 1.19.5
+          - python-version: 3.7
+            spark-version: 3.1.1
+            pandas-version: 1.1.5
+            pyarrow-version: 2.0.0
+            numpy-version: 1.19.5
+            default-index-type: 'distributed-sequence'
+          - python-version: 3.8
+            spark-version: 3.0.2
+            pandas-version: 1.1.5
+            pyarrow-version: 2.0.0
+            numpy-version: 1.19.5
+          - python-version: 3.8
+            spark-version: 3.1.1
+            pandas-version: 1.2.5
+            pyarrow-version: 3.0.0
+            numpy-version: 1.20.3
+            default-index-type: 'distributed-sequence'
+    env:
+      PYTHON_VERSION: ${{ matrix.python-version }}
+      SPARK_VERSION: ${{ matrix.spark-version }}
+      PANDAS_VERSION: ${{ matrix.pandas-version }}
+      PYARROW_VERSION: ${{ matrix.pyarrow-version }}
+      NUMPY_VERSION: ${{ matrix.numpy-version }}
+      DEFAULT_INDEX_TYPE: ${{ matrix.default-index-type }}
+      KOALAS_TESTING: 1
+      SPARK_LOCAL_IP: 127.0.0.1
+      # `QT_QPA_PLATFORM` for resolving 'QXcbConnection: Could not connect to display :0.0'
+      DISPLAY: 0.0
+      QT_QPA_PLATFORM: offscreen
+      KOALAS_USAGE_LOGGER: ${{ matrix.logger }}
+      # Github token is required to auto-generate the release notes from Github release notes
+      GITHUB_OAUTH_KEY: ${{ secrets.GITHUB_TOKEN }}
+      # Github Actions' default miniconda
+      CONDA_PREFIX: /usr/share/miniconda
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-java@v1
+      with:
+        java-version: 1.8
+    - name: Install dependencies
+      run: |
+        # See also https://github.com/conda/conda/issues/7980
+        source "$CONDA_PREFIX/etc/profile.d/conda.sh"
+        conda update -q conda
+        conda create -c conda-forge -q -n test-environment python=$PYTHON_VERSION
+        conda activate test-environment
+        conda install -c conda-forge --yes codecov
+        conda config --env --add pinned_packages python=$PYTHON_VERSION
+        conda config --env --add pinned_packages pandas==$PANDAS_VERSION
+        conda config --env --add pinned_packages pyarrow==$PYARROW_VERSION
+        conda config --env --add pinned_packages numpy==$NUMPY_VERSION
+        conda config --env --add pinned_packages pyspark==$SPARK_VERSION
+        if [[ "$SPARK_VERSION" < "3.0" ]]; then
+          pip install pyspark==$SPARK_VERSION
+        else
+          conda install -c conda-forge --yes pyspark==$SPARK_VERSION
+        fi
+        conda install -c conda-forge --yes pandas==$PANDAS_VERSION pyarrow==$PYARROW_VERSION numpy==$NUMPY_VERSION
+        sed -i -e "/pandas/d" -e "/pyarrow/d" -e "/numpy>=/d" requirements-dev.txt
+        # Disable mypy check for PySpark 3.1
+        if [[ "$SPARK_VERSION" > "3.1" ]]; then sed -i '/mypy/d' requirements-dev.txt; fi
+        # sphinx-plotly-directive is not available on Conda.
+        sed -i '/sphinx-plotly-directive/d' requirements-dev.txt
+        conda install -c conda-forge --yes --file requirements-dev.txt
+        pip install sphinx-plotly-directive  # pip-only dependency
+        conda list
+    - name: Run tests
+      run: |
+        # See also https://github.com/conda/conda/issues/7980
+        source "$CONDA_PREFIX/etc/profile.d/conda.sh"
+        conda activate test-environment
+        ./dev/lint-python
+        ./dev/pytest
+    - uses: codecov/codecov-action@v1
